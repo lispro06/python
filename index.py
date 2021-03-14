@@ -1,1 +1,1 @@
-print("du")
+print("du ide")
