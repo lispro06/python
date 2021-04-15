@@ -1,0 +1,142 @@
+def divide(a, b):
+    return a / b
+try:
+    c = print(divide(5, 1))
+except:
+    print('Exception is occurred!!')
+
+def divide(a, b):
+    return a / b
+try:
+    c = print(divide(5, 'a'))
+except ZeroDivisionError:
+    print('second number is zero')
+except TypeError:
+    print('you must input numbers')
+except :
+    print('unknown error')
+
+
+def divide(a, b):
+    return a / b
+try:
+    c = print(divide(5, 'a'))
+except ZeroDivisionError:
+    print('second number is zero')
+except TypeError:
+    print('you must input numbers')
+except :
+    print('unknown error')
+else :
+    print('Result: {0}'.format(c))
+finally :
+    print('always print')
+
+
+def divide(a, b):
+    return a / b
+try:
+    c = print(divide(5, 'a'))
+except ZeroDivisionError:
+    print('second number is zero')
+except TypeError as e:
+    print('error: ' , e.args[0])
+except :
+    print('unknown error')
+else :
+    print('Result: {0}'.format(c))
+finally :
+    print('always print')
+
+
+def divide(a, b):
+    return a / b
+try:
+    c = print(divide(5, 9.680233520597622e-319))
+except (ZeroDivisionError, OverflowError, FloatingPointError):
+    print('second number is zero')
+except TypeError as e:
+    print('error: ' , e.args[0])
+except :
+    print('unknown error')
+
+
+def divide(a, b):
+    return a / b
+try:
+    c = print(divide(5, 0))
+except ArithmeticError:
+    print('ArithmeticError')
+except TypeError as e:
+    print('error: ' , e.args[0])
+except :
+    print('unknown error')
+
+
+def divide(a, b):
+    return a / b
+FilePath= './main.py'
+try:
+    f = open(FilePath, 'r')
+    try:
+        data = f.read(128)
+        print(data)
+    except:
+        f.close()
+except IOError:
+    print("Fail to open {0} file".format(FilePath))
+
+
+def RaiseErrorFunc():
+    raise NameError # 내장예외인NameError를발생
+try:
+    RaiseErrorFunc()
+except:
+    print("NameError is Catched")
+
+
+class NegativeDivisionError(Exception): # 사용자 정의 예외 정의
+    def __init__(self, value):
+        self.value = value
+        
+def PositiveDivide(a, b):
+    if(b < 0):
+        raise NegativeDivisionError(b)
+    return a / b
+try:
+    ret = PositiveDivide(10, -3)
+    print('10 / 3 = {0}'.format(ret))
+except NegativeDivisionError as e: # 사용자 정의 예외인 경우
+    print('Error - Second argument of PositiveDevide is ', e.value)
+except ZeroDivisionError as e: # '0'으로 나누는 경우
+    print('Error - ', e.args[0])
+except : # 그 외 모든 예외의 경우
+    print(e.args)
+
+import sys
+print("sys.flags.debug =",sys.flags.debug)
+print("sys.flags.optimize = ",sys.flags.optimize)
+print("__debug__ = ", __debug__)
+def foo(x):
+    assert type(x) == int, "Input value must be integer" # 받은인자의 type이 정수형인지검사
+    return x*10
+ret = foo("a") # AssertionError가 발생
+print(ret)
+
+
+C:\Users\eight1\AppData\Local\Programs\Python\Python39>python.exe -O ac.py
+aaaaaaaaaa
+
+C:\Users\eight1\AppData\Local\Programs\Python\Python39>python.exe -d ac.py
+sys.flags.debug = 1
+sys.flags.optimize =  0
+__debug__ =  True
+Traceback (most recent call last):
+  File "C:\Users\eight1\AppData\Local\Programs\Python\Python39\ac.py", line 8, i
+n <module>
+    ret = foo("a") # AssertionError가 발생
+  File "C:\Users\eight1\AppData\Local\Programs\Python\Python39\ac.py", line 6, i
+n foo
+    assert type(x) == int, "Input value must be integer" # 받은인자의 type이 정
+수형인지검사
+AssertionError: Input value must be integer
